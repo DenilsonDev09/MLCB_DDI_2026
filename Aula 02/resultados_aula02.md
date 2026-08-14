@@ -13,3 +13,24 @@ R: Usar o erro para ensinar o modelo, ou de como não devolver a resposta incorr
 R: Ela calcula a probabilidade da resposta baseada na porcentagem reservada para teste.
 
 
+
+
+--- RESULTADOS DO LAB 02 ---
+Mensagem de Teste: 'Gostaria de devolver o produto que comprei'
+Intenção Predita: troca_devolucao
+
+--- Distribuição de Probabilidades por Classe ---
+Classe [duvida_frete]: 27.99%
+Classe [rastrear_pedido]: 24.54%
+Classe [troca_devolucao]: 47.46%
+
+# 1 - Avaliem os resultados e verifiquem se os resultados foram corretos ou incorretos. Coloque a resposta no arquivo do relatório do laboratório
+R: Correto, ele acertou a intenção do usuario.
+
+# 2 - Detectado algum erro, qual seria a maneira mais correta de melhorar o resultado do algoritmo?
+R: Alimentar o dataset com mais informações e exemplos de situações similares ao "Erro" encontrado e ir adicionando mais rotas.
+
+# 3 - Detalhe a função do Naive Bayes no algorítmo.
+R: Calcula a probabilidade da presença de uma mesma palavra encontrada mais de uma vez.
+
+
