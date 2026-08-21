@@ -12,36 +12,46 @@ dados_rh = {
     'mensagem': [
         'Como solicitar minhas ferias?', 'Quero agendar meu periodo de ferias',
         'Onde baixo meu holerite do mes?', 'Preciso do comprovante de rendimentos',
-        'Como cadastrar meu atestado medico?', 'Onde envio o atestado de consulta?'
+        'Como cadastrar meu atestado medico?', 'Onde envio o atestado de consulta?',
+        'Quantos dias de ferias eu tenho direito?', 'Quero consultar meu saldo de ferias',
+        'Como acessar meu holerite antigo?', 'Preciso de um holerite de meses anteriores',
+        'Qual o prazo para enviar um atestado?', 'Preciso cadastrar um atestado medico',
+        'Como consultar meus beneficios?', 'Onde vejo os beneficios oferecidos pela empresa',
+        'Como atualizar meus dados pessoais?', 'Preciso alterar meu endereco cadastrado'
     ],
     'intencao': [
         'solicitar_ferias', 'solicitar_ferias',
         'obter_holerite', 'obter_holerite',
-        'enviar_atestado', 'enviar_atestado'
+        'enviar_atestado', 'enviar_atestado',
+        'consultar_ferias', 'consultar_ferias',
+        'obter_holerite', 'obter_holerite',
+        'enviar_atestado', 'enviar_atestado',
+        'consultar_beneficios', 'consultar_beneficios',
+        'atualizar_dados', 'atualizar_dados'
     ]
 }
 
 df3 = pd.DataFrame(dados_rh)
 
 # TODO 1: Separe o dataset em X ('mensagem') e y ('intencao')
-X = None
-y = None
+X = df3['mensagem']
+y = df3['intencao']
 
 # TODO 2: Realize o train_test_split com test_size=0.33 e random_state=42
-# X_train, X_test, y_train, y_test = ...
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
 # TODO 3: Monte o Pipeline encapsulando o TfidfVectorizer e a LogisticRegression
-# pipeline = Pipeline([
-#     ('vectorizer', TfidfVectorizer(stop_words=['de', 'o', 'meu', 'minhas'])),
-#     ('classifier', LogisticRegression())
-# ])
+pipeline = Pipeline([
+      ('vectorizer', TfidfVectorizer(stop_words=['de', 'o', 'meu', 'minhas'])),
+      ('classifier', LogisticRegression())
+ ])
 
 # TODO 4: Treine o pipeline completo com .fit() usando os dados de treino brutos
-# pipeline.fit(...)
+pipeline.fit(X_train, y_train)
 
 # TODO 5: Faca a predicao nos dados de teste brutos e exiba a acuracia
-# predicoes = pipeline.predict(...)
-# print(f"Acuracia via Pipeline: {accuracy_score(y_test, predicoes) * 100:.2f}%")
+predicoes = pipeline.predict(X_test)
+print(f"Acuracia via Pipeline: {accuracy_score(y_test, predicoes) * 100:.2f}%")
 
 #========== PRODUÇÃO DO RELATÓRIO:==============
 # 1 - Cole o código corrigido e a acurácia obtida.
