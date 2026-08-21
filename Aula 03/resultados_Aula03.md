@@ -54,4 +54,43 @@ R: pois podemos ter 100% de acerto com uma classe, porem nenhum acerto em outra,
 # Todos os resultados devem ser inseridos no arquivo resultados_aula03.md
 #========== FIM ==============
 
+--- RESULTADOS DO LAB 03 (AULA 03) ---
 
+Acuracia via Pipeline: 16.67%
+
+#========== PRODUÇÃO DO RELATÓRIO:==============
+# 1 - Cole o código corrigido e a acurácia obtida.
+R: Acuracia via Pipeline: 16.67%
+
+
+dados_rh = {
+    'mensagem': [
+        'Como solicitar minhas ferias?', 'Quero agendar meu periodo de ferias',
+        'Onde baixo meu holerite do mes?', 'Preciso do comprovante de rendimentos',
+        'Como cadastrar meu atestado medico?', 'Onde envio o atestado de consulta?',
+        'Quantos dias de ferias eu tenho direito?', 'Quero consultar meu saldo de ferias',
+        'Como acessar meu holerite antigo?', 'Preciso de um holerite de meses anteriores',
+        'Qual o prazo para enviar um atestado?', 'Preciso cadastrar um atestado medico',
+        'Como consultar meus beneficios?', 'Onde vejo os beneficios oferecidos pela empresa',
+        'Como atualizar meus dados pessoais?', 'Preciso alterar meu endereco cadastrado'
+    ],
+    'intencao': [
+        'solicitar_ferias', 'solicitar_ferias',
+        'obter_holerite', 'obter_holerite',
+        'enviar_atestado', 'enviar_atestado',
+        'consultar_ferias', 'consultar_ferias',
+        'obter_holerite', 'obter_holerite',
+        'enviar_atestado', 'enviar_atestado',
+        'consultar_beneficios', 'consultar_beneficios',
+        'atualizar_dados', 'atualizar_dados'
+    ]
+}
+
+# 2 - Qual é a grande vantagem de utilizar o objeto Pipeline no Scikit-Learn?
+R: Minizar o coódigo e limpo.
+
+# 3 - Por que o Pipeline evita que erros de pré-processamento ocorram entre treino e teste?
+R: Ele deixa pré-Definido e facilita o deploy.
+
+# Todos os resultados devem ser inseridos no arquivo resultados_aula03.md
+#========== FIM ==============
