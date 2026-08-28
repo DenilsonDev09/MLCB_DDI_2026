@@ -138,7 +138,28 @@ Digite a frase do cliente: problema
 Bot [Intenção: TROCAS_DEVOLUCOES | Confiança: 100.0%]: Me passe o código do pedido.
 
 [Teste 8/8]
-Digite a frase do cliente: facil
 
-Bot [Intenção: TROCAS_DEVOLUCOES | Confiança: 100.0%]: Me passe o código do pedido.
+--- RESULTADOS DO LAB 03 (AULA 04) --- 
+
+# Relatório de Avaliação NLU - SAC Móveis Residenciais
+## 1. Tabela Comparativa de Métricas (Dados de Teste)
+
+| Modelo | Acurácia Geral | F1-Score (Weighted) | Principais Erros na Matriz |
+| :--- | :--- | :--- | :--- |
+| **KNN (K=3)** | 100% | 100% | tivemos problemas apresentados em todas as classes |
+| **Decision Tree** | 77% | 75% | tivemos problemas apresentados em todas as classes |
+
+## 2. Análise dos Testes de Entrada (`input()`)
+- **Comportamento do KNN (10 testes):** [Como o KNN reagiu às variações das frases digitadas e ao fallback?]
+ R: Reage bem a frases com fallback por conta do modelo utilizado, porem algumas frases ainda acaba classificando errado
+
+- **Comportamento da Decision Tree (8 testes):** [Como a Árvore de Decisão se comportou em comparação ao KNN?]
+R: por conta do modelo utilizado, podemos perceber que não reage bem com frases para fallback, onde acaba classificando como algumas das classes ao inves de colocar como erro
+
+## 3. Veredito Final
+- **Melhor modelo para este projeto:** [KNN ou Decision Tree]
+R: KNN
+- **Justificativa técnica:** [Explique a escolha com base nas métricas estatísticas e no comportamento do fallback]
+R: Por conta que a Decision Tree acaba classificando frases sem contexto nenhum como alguma das classes por conta da forma que lhe é estruturado, acaba fazendo decisões erradas, apesar do KNN tambem
+apresentar erros, tivemos menos erros e mais respostas corretas ao fallback, por conta da sua estrutura de classificar
 
