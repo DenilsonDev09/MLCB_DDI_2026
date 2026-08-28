@@ -6,7 +6,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
-from sklearn.metrics.pairwise import cosine_similarity
 
 
 # ============================================================
@@ -30,13 +29,12 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 
 # ============================================================
-# 3. Montar Pipeline
+# TODO 1: Montar a Pipeline utilizando
+# TfidfVectorizer e DecisionTreeClassifier
 # ============================================================
 
 pipeline_nlu = Pipeline([
-    ('vectorizer', TfidfVectorizer(
-        ngram_range=(1, 2)
-    )),
+    ('vectorizer', TfidfVectorizer(ngram_range=(1, 2))),
     ('classifier', DecisionTreeClassifier(
         random_state=42
     ))
@@ -44,14 +42,15 @@ pipeline_nlu = Pipeline([
 
 
 # ============================================================
-# 4. Treinar Pipeline
+# TODO 2: Treinar a pipeline com os dados de treino
 # ============================================================
 
 pipeline_nlu.fit(X_train, y_train)
 
 
 # ============================================================
-# 5. Avaliação do modelo
+# TODO 3: Gerar as predições nos dados de teste
+# e exibir classification_report e confusion_matrix
 # ============================================================
 
 y_pred = pipeline_nlu.predict(X_test)
@@ -64,24 +63,14 @@ print(confusion_matrix(y_test, y_pred))
 
 
 # ============================================================
-# 6. Configuração dos limiares
+# Configuração do limiar de confiança
 # ============================================================
 
-LIMIAR_CONFIANCA = 0.70
-LIMIAR_SIMILARIDADE = 0.20
-
-
-# ============================================================
-# 7. Preparar TF-IDF dos dados de treinamento
-# ============================================================
-
-vectorizer = pipeline_nlu.named_steps['vectorizer']
-
-X_train_tfidf = vectorizer.transform(X_train)
+LIMIAR_CONFIANCA = 0.50
 
 
 # ============================================================
-# 8. Bateria de testes
+# Bateria de testes
 # ============================================================
 
 print("\n=== INICIANDO BATERIA DE TESTES (8 INPUTS) ===")
@@ -92,112 +81,76 @@ for i in range(1, 9):
     print(f"\n[Teste {i}/8]")
 
     # ========================================================
-    # Entrada do usuário
+    # TODO 4: Solicitar a frase do usuário via teclado
     # ========================================================
 
     frase = input("Digite a frase do cliente: ").strip()
 
 
     # ========================================================
-    # Probabilidade
+    # TODO 5: Extrair probabilidades e classe prevista
     # ========================================================
 
     probs = pipeline_nlu.predict_proba([frase])[0]
 
     maior_prob = np.max(probs)
 
-
-    # ========================================================
-    # Intenção prevista
-    # ========================================================
-
     intencao = pipeline_nlu.predict([frase])[0]
 
 
     # ========================================================
-    # Similaridade
+    # TODO 6: Regra de decisão
     # ========================================================
 
-    frase_tfidf = vectorizer.transform([frase])
+    if maior_prob >= LIMIAR_CONFIANCA:
 
-    similaridades = cosine_similarity(
-        frase_tfidf,
-        X_train_tfidf
-    )[0]
-
-    maior_similaridade = np.max(similaridades)
-
-
-    # ========================================================
-    # Regra de decisão
-    # ========================================================
-
-    if (
-        maior_prob >= LIMIAR_CONFIANCA
-        and maior_similaridade >= LIMIAR_SIMILARIDADE
-    ):
-
-        confianca = maior_prob * 100
+        print(
+            f"\nBot [Intenção: {intencao.upper()} | "
+            f"Confiança: {maior_prob * 100:.1f}%]: ",
+            end=""
+        )
 
         if intencao == "vendas":
 
-            resposta = "Temos uma promoção."
+            print("Temos uma promoção.")
 
         elif intencao == "suporte":
 
-            resposta = (
+            print(
                 "Comente qual é a sua dúvida que o suporte "
                 "já vai te atender."
             )
 
         elif intencao == "trocas_devolucoes":
 
-            resposta = "Me passe o código do pedido."
+            print("Me passe o código do pedido.")
 
         elif intencao == "reclamacoes":
 
-            resposta = (
+            print(
                 "Desculpe pelo transtorno. Iremos encaminhar "
                 "sua reclamação para o Denilson do TI."
             )
 
         elif intencao == "logistica_entregas":
 
-            resposta = "Iremos colocar prioridade na entrega."
+            print("Iremos colocar prioridade na entrega.")
 
-        else:
-
-            resposta = (
-                "Desculpe, não consegui entender sua solicitação."
-            )
-
-
-        # ====================================================
-        # Mostrar somente resposta + confiança
-        # ====================================================
-
-        print(
-            f"Bot: {resposta}"
-        )
-
-        print(
-            f"Confiabilidade: {confianca:.1f}%"
-        )
 
 
     # ========================================================
-    # FALLBACK
+    # Fallback
     # ========================================================
 
     else:
 
         print(
-            "Bot: Desculpe, não consegui entender sua solicitação. "
-            "Por favor, aguarde um momento enquanto encaminho "
-            "você para um atendente humano..."
+            f"\nBot: [FALLBACK - Confiança baixa: "
+            f"{maior_prob * 100:.1f}%]"
         )
 
         print(
-            f"Confiabilidade: {maior_prob * 100:.1f}%"
+            "Desculpe, não consegui entender sua solicitação. "
+            "Por favor, aguarde um momento enquanto encaminho "
+            "você para um atendente humano..."
         )
-]
