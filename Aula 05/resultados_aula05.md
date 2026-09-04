@@ -7,4 +7,9 @@ Frase Original: Gostaria de saber se vocês estão COMPRANDO as mesas com defeit
 Frase Limpa & Lemmatizada: gostar saber comprar mesa defeito
 
 ---------------------------
+------ LAB 02 AULA 05 -------
 
+Carregando modelo de Embeddings FastText (Gensim)...
+Formato da Matriz de Vetores Densos (Exemplos, Dimensões): (32, 50)
+
+---------------------------
