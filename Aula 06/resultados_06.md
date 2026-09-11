@@ -18,3 +18,18 @@ FRASE 4: estou com problema de vazamento de dados no meu apartamento
 Intenção: suporte_manutencao
 Confiança: 66.5%
 Status da Decisão:  IDENTIFICADO (suporte_manutencao)
+
+-------- LAB 01 ---------
+FRASE 1: Gostaria do boleto!
+Intenção: 2via_boleto_contrato
+Confiança: 40.0%
+Status da Decisão: UNCERTAIN (Fallback Acionado)
+
+FRASE 2: Preciso de suporte técnico para consertar vazamento.
+Intenção: comprar_imovel
+Confiança: 100.0%
+Status da Decisão: IDENTIFICADO (comprar_imovel)
+
+---------LAB 02----------
+
+
