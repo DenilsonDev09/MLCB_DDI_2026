@@ -32,4 +32,14 @@ Status da Decisão: IDENTIFICADO (comprar_imovel)
 
 ---------LAB 02----------
 
+FRASE 1: qual a disponibilidade do apartamento
+Intenção: 2via_boleto_contrato
+Confiança: 40.0%
+Status da Decisão: UNCERTAIN (Fallback Acionado)
 
+FRASE 2: Preciso do boleto pra ontem
+Intenção: suporte_manutencao
+Confiança: 100.0%
+Status da Decisão: IDENTIFICADO (suporte_manutencao)
+
+--------LAB 03----------
