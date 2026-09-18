@@ -55,3 +55,13 @@ Confiança: 100.0%
 Status da Decisão: IDENTIFICADO (suporte_manutencao) (Corte mínimo: 65%)
 
 -------LAB 04--------
+
+FRASE 1: quero cancelar meu contrato e nunca mais assinar
+Intenção: cancelar_contrato
+Confiança: 100.0%
+Status da Decisão:  IDENTIFICADO (cancelar_contrato) (Corte mínimo: 65%)
+
+FRASE 2: como faço para cancelar essa budega
+Intenção: 2via_boleto_contrato
+Confiança: 40.0%
+Status da Decisão:  UNCERTAIN (Fallback Acionado) (Corte mínimo: 65%)
