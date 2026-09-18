@@ -43,3 +43,15 @@ Confiança: 100.0%
 Status da Decisão: IDENTIFICADO (suporte_manutencao)
 
 --------LAB 03----------
+
+FRASE 1: Preciso de suporte técnico para consertar vazamento.
+Intenção: suporte_manutencao
+Confiança: 100.0%
+Status da Decisão: IDENTIFICADO (suporte_manutencao) (Corte mínimo: 65%)
+
+FRASE 2: Onde consigo arrrumar um apartamento pra ontem
+Intenção: suporte_manutencao
+Confiança: 100.0%
+Status da Decisão: IDENTIFICADO (suporte_manutencao) (Corte mínimo: 65%)
+
+-------LAB 04--------
