@@ -20,3 +20,10 @@ Frase: 'Gostaria de ver receitas de bolo de cenoura' | Resultado: vendas_orcamen
 
 ---------------------------
 ------ LAB 04 AULA 05 -------
+
+ Acurácia - Regressão Logística (Linear): 93.75%
+ Acurácia - KNN (Distância K=3): 56.25%
+---------------------------
+ # Pergunta para reflexão do aluno:
+# Qual dos dois modelos lida melhor quando temos frases muito curtas ou distantes no espaço vetorial?
+R: Regressão logistica (linear), teve uma porcentagem melhor de acerto 
