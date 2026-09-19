@@ -195,6 +195,7 @@ recall = vp / (vp + fn)
 # TODO: Imprima o Recall formatado em porcentagem
 print(f"Recall: {recall}%")
 [17]
+
 #Cenário: Triagem médica automatizada em um pronto-socorro.
 vp = 90  # Verdadeiros Positivos (casos graves detectados)
 fn = 10  # Falsos Negativos (casos graves ignorados)
@@ -211,3 +212,49 @@ Recall: 0.9%
 
 #Responda: O Recall foca em evitar Falsos Positivos ou Falsos Negativos? Por que ter um Recall alto é vital na área de saúde ou segurança?
 R:  Recall alto = menos casos graves perdidos (Falsos Negativos).
+
+
+
+--------------------------------------------------------------------------------
+EXERCÍCIO 09: Processamento Rápido — Simulando um Stemmer
+--------------------------------------------------------------------------------
+
+#Cenário: Redução mecânica de palavras para economia de recursos.
+palavras = ["correndo", "corredor", "correu"]
+
+# TODO: Crie uma lista vazia chamada radicais
+radicais = []
+
+# TODO: Percorra a lista 'palavras' e corte os sufixos de modo que todas 
+# fiquem reduzidas ao radical "corr". Adicione "corr" na lista 'radicais'.
+for palavra in palavras:
+    radicais.append("corr")
+# TODO: Imprima a lista radicais
+print(radicais)
+['corr', 'corr', 'corr']
+
+#Responda: O que caracteriza o Stemming em termos de processamento e por que ele é mais rápido do que a Lematização?
+R: O Stemming é um processo que reduz as palavras ao seu radical por meio de regras mecânicas, geralmente removendo sufixos e prefixos. Ele é mais rápido que a Lematização porque não precisa analisar profundamente a estrutura.
+
+
+--------------------------------------------------------------------------------
+EXERCÍCIO 10: Seleção de Intenção e Disparo de Fallback
+--------------------------------------------------------------------------------
+
+#Cenário: O chatbot recebe a frase ambígua "Quero ver aquele negócio lá".
+probabilidades = [0.25, 0.30, 0.15]
+limiar = 0.60
+
+# TODO: Descubra a maior probabilidade da lista usando a função max()
+maior_confianca = max(probabilidades)
+
+# TODO: Crie uma estrutura if/else:
+# - Se maior_confianca for maior ou igual ao limiar, imprima "Intenção Confirmada"
+# - Caso contrário, imprima "Acionar Fallback"
+if maior_confianca >= limiar:
+  print( "Intençaõ Confirmada!")
+else:
+  print("Acionar Fallback")
+
+#Responda: Diante de uma intenção ambígua que aciona o Fallback, qual mensagem o chatbot deve exibir ao usuário e qual o objetivo dessa resposta?
+R: Desculpe, não entendi exatamente o que você quis dizer. Irei encaminha para um especialista do nosso time!
