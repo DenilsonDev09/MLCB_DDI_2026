@@ -13,3 +13,10 @@ Carregando modelo de Embeddings FastText (Gensim)...
 Formato da Matriz de Vetores Densos (Exemplos, Dimensões): (32, 50)
 
 ---------------------------
+------ LAB 03 AULA 05 -------
+
+Frase: 'Quero saber o valor do frete do sofá' | Resultado: FALLBACK_HUMANO | Confiança: 35.52%
+Frase: 'Gostaria de ver receitas de bolo de cenoura' | Resultado: vendas_orcamento | Confiança: 69.10%
+
+---------------------------
+------ LAB 04 AULA 05 -------
